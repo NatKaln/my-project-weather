@@ -20,6 +20,9 @@ button {
   border-radius: 20px;
   border: 3px solid rgb(54, 53, 53);
 }
+.coder {
+  font-size: 10px;
+}
 
 .updated {
   font-size: 12px;
