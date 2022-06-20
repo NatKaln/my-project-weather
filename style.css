@@ -41,3 +41,6 @@ button {
 .emoji {
   font-size: 60px;
 }
+#locationSearch {
+  border-radius: 10px;
+}
