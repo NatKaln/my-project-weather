@@ -1,4 +1,43 @@
 h1 {
-  text-align: center;
-  color: red;
+  color: blue;
+  display: inline;
+}
+form {
+  display: inline;
+  line-height: 25px;
+}
+input {
+  border-radius: 20px;
+  border: 3px solid rgb(54, 53, 53);
+}
+
+p {
+  font-weight: bold;
+  font-style: italic;
+  padding-bottom: 25px;
+}
+button {
+  border-radius: 20px;
+  border: 3px solid rgb(54, 53, 53);
+}
+
+.updated {
+  font-size: 12px;
+}
+.updinfo {
+  font-size: 16px;
+}
+.second {
+  padding-top: 25px;
+}
+.temp {
+  padding: 12px;
+  font-style: italic;
+}
+.degree {
+  font-size: 20px;
+  font-weight: bold;
+}
+.emoji {
+  font-size: 60px;
 }
