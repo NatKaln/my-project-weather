@@ -41,9 +41,22 @@ button {
   font-size: 20px;
   font-weight: bold;
 }
-.emoji {
-  font-size: 60px;
-}
+
 #locationSearch {
   border-radius: 10px;
+}
+#clouds-cur {
+  text-transform: capitalize;
+}
+#fahrenheit-link {
+  text-decoration: none;
+}
+
+.temp .active {
+  color: rgb(54, 53, 53);
+  cursor: default;
+  text-decoration: none;
+}
+.temp .active:hover {
+  text-decoration: none;
 }

@@ -54,7 +54,38 @@ function showWeather(response) {
   let clouds = response.data.weather[0].description;
   let cloudsElement = document.querySelector("#clouds-cur");
   cloudsElement.innerHTML = clouds;
+  let iconElement = document.querySelector("#icon");
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  iconElement.setAttribute("alt", response.data.weather[0].description);
+
+  celsiusTemperature = response.data.main.temp;
 }
+
+function displayFahrenheitTemperature(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temperature-cur");
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+}
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
+
+function displayCelsiusTemperature(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temperature-cur");
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+}
+
+let celsiusLink = document.querySelector("#celcium-link");
+celsiusLink.addEventListener("click", displayCelsiusTemperature);
 
 // Current location
 function locationButton(position) {
@@ -89,3 +120,7 @@ function getCurrentPosition(event) {
 }
 let locationCurrent = document.querySelector("#locationSearch");
 locationCurrent.addEventListener("click", getCurrentPosition);
+
+let celsiusTemperature = null;
+
+search("Oslo");
