@@ -16,6 +16,7 @@
 
   <body>
     <div class="container">
+        <div class="weather-app-wrapper">
       <h1>📍<span id="curCity">Kyiv</span></h1>
       <form id="changeCity">
         <input type="text" placeholder="Enter your city" id="inputCity" />
@@ -35,10 +36,12 @@
 
         <div class="row second">
             
-          <div class="col-2" > <img 
-            src="" 
+          <div class="col-2" > 
+            <img 
+            src= ""; 
             alt="clear sky"
-            id="icon" /></div>
+            id="icon" />
+            </div>
           <div class="col-4 temp">
             <span class="degree" id="temperature-cur">25</span> 
             <a href="#" id="celcium-link" class="active">°C</a> / <a href="#" id="fahrenheit-link" >°F</a><br />
@@ -47,7 +50,7 @@
             
           </div>
           <div class="col-4 temp">
-            Humidity:<strong> <span id="humidity-cur">90</span></strong> 
+            Humidity:<strong> <span id="humidity-cur">90%</span></strong> 
            <br> Wind:<strong> <span id="wind-cur">5</span> </strong>
             <br />
              Clouds: <strong><span id="clouds-cur">80%</span>  </strong>
@@ -57,18 +60,35 @@
       <p>Don't forget umbrella!☔</p>
 
       <div class="row">
-        <div class="col"><strong>Sun </strong> <br />22.05 26°C 🌧️</div>
-        <div class="col"><strong>Mon</strong> <br />23.05 25°C ☁️</div>
+        <div class="col"><strong>Sun </strong> <br />
+            <img src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png" alt=""
+          width="30px"
+          /> 26°C </div>
+        <div class="col"><strong>Mon</strong><br />
+            <img src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png" alt=""
+          width="30px"
+          />   25°C</div>
         <div class="col">
           <strong>Tue</strong> <br />
-          24.05 23°C 🌧️
+          <img src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png" alt=""
+          width="30px"
+          />  
+          23°C 
         </div>
         <div class="col">
           <strong> Wed </strong><br />
-          25.05 27°C ⛅
+          <img src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png" alt=""
+          width="30px"
+          /> 
+          27°C 
+           
         </div>
-        <div class="col"><strong>Thu</strong> <br />26.05 30°C ☀️
+        <div class="col"><strong>Thu</strong> <br /> 
+            <img src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png" alt=""
+          width="30px"
+          />30°C 
         </div>
+      </div>
       </div>
       <p class="coder"><a href="https://github.com/NatKaln/my-project-weather">Open-source code</a> by Nat Kalnytska</p> 
       <script src="script.js"></script>
