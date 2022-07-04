@@ -16,23 +16,13 @@ let month = now.getMonth();
 if (month < 10) {
   month = `0${month}`;
 }
-//let days = [
-// "Sunday",
-//"Monday",
-//"Tuesaday",
-//"Wednesday",
-//"Thursday",
-//"Friday",
-//"Saturday",
-//];
-//let day = days[now.getDay()];
-//return `${day} ${hours} ${minutes}`;
 
 let displayDate = document.querySelector("#currentDate");
 displayDate.innerHTML = `${year}.${month}.${date}`;
 
 // Forecast
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data.daily);
   let forecastElement = document.querySelector("#forecast");
   let days = ["Thu", "Fri", "Sat", "Sun"];
   let forecastHTML = `<div class="row">`;
@@ -57,7 +47,13 @@ function displayForecast() {
 
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
-  console.log(forecastHTML);
+}
+
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = "ae257b6f200fc59e9f754b38798d7627";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
 }
 
 // Search
@@ -103,6 +99,8 @@ function showWeather(response) {
   iconElement.setAttribute("alt", response.data.weather[0].description);
 
   celsiusTemperature = response.data.main.temp;
+
+  getForecast(response.data.coord);
 }
 
 function displayFahrenheitTemperature(event) {
@@ -163,5 +161,5 @@ let locationCurrent = document.querySelector("#locationSearch");
 locationCurrent.addEventListener("click", getCurrentPosition);
 
 let celsiusTemperature = null;
-displayForecast();
+
 search("Kyiv");
