@@ -20,9 +20,17 @@ button {
   border-radius: 20px;
   border: 3px solid rgb(54, 53, 53);
 }
+body {
+  background: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+}
 .weather-app-wrapper {
+  padding-top: 25px;
   max-width: 55%;
   margin: 0 auto;
+  background: linear-gradient(
+    rgba(254, 222, 254, 0.675),
+    rgba(255, 255, 255, 0.791) 90%
+  );
 }
 .coder {
   font-size: 10px;

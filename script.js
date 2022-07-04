@@ -7,9 +7,6 @@ if (minutes < 10) {
   minutes = `0${minutes}`;
 }
 
-let displayTime = document.querySelector("#currentTime");
-displayTime.innerHTML = `${hours}:${minutes}`;
-
 let year = now.getFullYear();
 let date = now.getDate();
 let month = now.getMonth();
@@ -17,6 +14,8 @@ if (month < 10) {
   month = `0${month}`;
 }
 
+let displayTime = document.querySelector("#currentTime");
+displayTime.innerHTML = `${hours}:${minutes}`;
 let displayDate = document.querySelector("#currentDate");
 displayDate.innerHTML = `${year}.${month}.${date}`;
 
