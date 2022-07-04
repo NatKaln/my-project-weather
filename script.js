@@ -1,4 +1,5 @@
 // Date and Time
+
 let now = new Date();
 let hours = now.getHours();
 let minutes = now.getMinutes();
@@ -15,9 +16,49 @@ let month = now.getMonth();
 if (month < 10) {
   month = `0${month}`;
 }
+//let days = [
+// "Sunday",
+//"Monday",
+//"Tuesaday",
+//"Wednesday",
+//"Thursday",
+//"Friday",
+//"Saturday",
+//];
+//let day = days[now.getDay()];
+//return `${day} ${hours} ${minutes}`;
 
 let displayDate = document.querySelector("#currentDate");
 displayDate.innerHTML = `${year}.${month}.${date}`;
+
+// Forecast
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let days = ["Thu", "Fri", "Sat", "Sun"];
+  let forecastHTML = `<div class="row">`;
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+      <div class="col-2">
+        <strong>${day}</strong> <br />
+        <img
+          src="http://openweathermap.org/img/wn/50d@2x.png"
+          alt=""
+          width="42"
+        />
+        <div class="weather-forecast-temperatures">
+          <span class="weather-forecast-temperature-max"> 18° </span>
+          <span class="weather-forecast-temperature-min"> 12° </span>
+        </div>
+      </div>
+  `;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+  console.log(forecastHTML);
+}
 
 // Search
 
@@ -122,5 +163,5 @@ let locationCurrent = document.querySelector("#locationSearch");
 locationCurrent.addEventListener("click", getCurrentPosition);
 
 let celsiusTemperature = null;
-
-search("Oslo");
+displayForecast();
+search("Kyiv");

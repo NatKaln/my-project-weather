@@ -4,94 +4,69 @@
     <title>Parcel Sandbox</title>
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="style.css" />
- 
+
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
       crossorigin="anonymous"
-    /> 
+    />
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   </head>
 
   <body>
     <div class="container">
-        <div class="weather-app-wrapper">
-      <h1>📍<span id="curCity">Kyiv</span></h1>
-      <form id="changeCity">
-        <input type="text" placeholder="Enter your city" id="inputCity" />
-        <input type="submit"  value="🔎" />
-      </form>
-      <button id="locationSearch">Current location</button>
-                
-             
-      <div class="row" id="dateInfo">
-        <div class="col">
-          Updated 5 min ago
-          <br />
-          Today / Saturday
-          <br />
-          <span id="currentDate">21.05.2022</span> <span id="currentTime">16:48</span>
-        </div>
+      <div class="weather-app-wrapper">
+        <h1>📍<span id="curCity">Kyiv</span></h1>
+        <form id="changeCity">
+          <input type="text" placeholder="Enter your city" id="inputCity" />
+          <input type="submit" value="🔎" />
+        </form>
+        <button id="locationSearch">Current location</button>
 
-        <div class="row second">
-            
-          <div class="col-2" > 
-            <img 
-            src= ""; 
-            alt="clear sky"
-            id="icon" />
+        <div class="row" id="dateInfo">
+          <div class="col">
+            Updated: Today / <span id="dayCur">Saturday </span>
+            <br />
+            <span id="currentDate">21.05.2022</span>
+            <span id="currentTime">16:48</span>
+          </div>
+
+          <div class="row second">
+            <div class="col-2">
+              <img
+                src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
+                alt="clear sky"
+                id="icon"
+              />
             </div>
-          <div class="col-4 temp">
-            <span class="degree" id="temperature-cur">25</span> 
-            <a href="#" id="celcium-link" class="active">°C</a> / <a href="#" id="fahrenheit-link" >°F</a><br />
-           
-            <br />
-            
-          </div>
-          <div class="col-4 temp">
-            Humidity:<strong> <span id="humidity-cur">90%</span></strong> 
-           <br> Wind:<strong> <span id="wind-cur">5</span> </strong>
-            <br />
-             Clouds: <strong><span id="clouds-cur">80%</span>  </strong>
-          </div>
-        </div>
-      </div>
-      <p>Don't forget umbrella!☔</p>
+            <div class="col-4 temp">
+              <span class="degree" id="temperature-cur">25</span>
+              <a href="#" id="celcium-link" class="active">°C</a> /
+              <a href="#" id="fahrenheit-link">°F</a><br />
 
-      <div class="row">
-        <div class="col"><strong>Sun </strong> <br />
-            <img src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png" alt=""
-          width="30px"
-          /> 26°C </div>
-        <div class="col"><strong>Mon</strong><br />
-            <img src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png" alt=""
-          width="30px"
-          />   25°C</div>
-        <div class="col">
-          <strong>Tue</strong> <br />
-          <img src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png" alt=""
-          width="30px"
-          />  
-          23°C 
+              <br />
+            </div>
+            <div class="col-4 temp">
+              Humidity:<strong> <span id="humidity-cur">90%</span></strong>
+              <br />
+              Wind:<strong> <span id="wind-cur">5</span> </strong>
+              <br />
+              Clouds: <strong><span id="clouds-cur">80%</span> </strong>
+            </div>
+          </div>
         </div>
-        <div class="col">
-          <strong> Wed </strong><br />
-          <img src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png" alt=""
-          width="30px"
-          /> 
-          27°C 
-           
-        </div>
-        <div class="col"><strong>Thu</strong> <br /> 
-            <img src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png" alt=""
-          width="30px"
-          />30°C 
-        </div>
+        <p>Don't forget umbrella!☔</p>
+
+        <div class="weather-forecast" id="forecast"></div>
       </div>
-      </div>
-      <p class="coder"><a href="https://github.com/NatKaln/my-project-weather">Open-source code</a> by Nat Kalnytska</p> 
-      <script src="script.js"></script>
-  </body > 
-</html>  
- 
+    </div>
+    <p class="coder">
+      <a href="https://github.com/NatKaln/my-project-weather"
+        >Open-source code</a
+      >
+      by Nat Kalnytska
+    </p>
+    <script src="script.js"></script>
+  </body>
+</html>
