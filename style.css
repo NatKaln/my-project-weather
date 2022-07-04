@@ -65,3 +65,6 @@ button {
 .temp .active:hover {
   text-decoration: none;
 }
+.weather-forecast-temperature-min {
+  color: rgb(150, 145, 145);
+}
