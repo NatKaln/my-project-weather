@@ -1,23 +1,48 @@
 // Date and Time
+function formatDate(timestamp) {
+  let date = new Date(timestamp);
+  let hours = date.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  let minutes = date.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
 
-let now = new Date();
-let hours = now.getHours();
-let minutes = now.getMinutes();
-if (minutes < 10) {
-  minutes = `0${minutes}`;
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let day = days[date.getDay()];
+  return `${day} ${hours}:${minutes}`;
 }
+function formatDateMonth(timestamp) {
+  let now = new Date(timestamp);
+  let months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+  let month = months[now.getMonth()];
+  let date = now.getDate();
 
-let year = now.getFullYear();
-let date = now.getDate();
-let month = now.getMonth();
-if (month < 10) {
-  month = `0${month}`;
+  return `${date}th of ${month}`;
 }
-
-let displayTime = document.querySelector("#currentTime");
-displayTime.innerHTML = `${hours}:${minutes}`;
-let displayDate = document.querySelector("#currentDate");
-displayDate.innerHTML = `${year}.${month}.${date}`;
 
 //display correct days with forecast
 function formatDay(timestamp) {
@@ -30,6 +55,7 @@ function formatDay(timestamp) {
 
 // Forecast
 function displayForecast(response) {
+  console.log(response.data.daily);
   let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
   let days = ["Thu", "Fri", "Sat", "Sun"];
@@ -64,10 +90,10 @@ function displayForecast(response) {
 
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
+  return displayForecast;
 }
 
 function getForecast(coordinates) {
-  console.log(coordinates);
   let apiKey = "ae257b6f200fc59e9f754b38798d7627";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayForecast);
@@ -93,6 +119,12 @@ function showWeather(response) {
   let cityName = response.data.name;
   city.innerHTML = cityName;
 
+  let dateElement = document.querySelector("#dayCur");
+  dateElement.innerHTML = formatDate(response.data.dt * 1000);
+
+  let dayOfMonth = document.querySelector("#currentDate");
+  dayOfMonth.innerHTML = formatDateMonth(response.data.dt * 1000);
+
   let temperature = Math.round(response.data.main.temp);
   let temperatureElement = document.querySelector("#temperature-cur");
   temperatureElement.innerHTML = temperature;
@@ -108,6 +140,7 @@ function showWeather(response) {
   let clouds = response.data.weather[0].description;
   let cloudsElement = document.querySelector("#clouds-cur");
   cloudsElement.innerHTML = clouds;
+
   let iconElement = document.querySelector("#icon");
   iconElement.setAttribute(
     "src",
@@ -166,6 +199,14 @@ function locationButton(position) {
     let clouds = position.data.weather[0].description;
     let cloudsElement = document.querySelector("#clouds-cur");
     cloudsElement.innerHTML = clouds;
+
+    let date = formatDate(position.data.dt * 1000);
+    let dateElement = document.querySelector("#dayCur");
+    dateElement.innerHTML = date;
+
+    let day = formatDateMonth(position.data.dt * 1000);
+    let dayOfMonth = document.querySelector("#currentDate");
+    dayOfMonth.innerHTML = day;
   }
   axios.get(apiUrl).then(showTemperature);
 }
@@ -179,4 +220,4 @@ locationCurrent.addEventListener("click", getCurrentPosition);
 
 let celsiusTemperature = null;
 
-search("Kyiv");
+search("London");

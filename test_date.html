@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p id="time">Current time</p>
+    <script>
+      function formatDate(newDate) {
+        let now = new Date();
+
+        let date = now.getDate();
+
+        let year = now.getFullYear();
+
+        let days = [
+          "Sunday",
+          "Monday",
+          "Tuesaday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+        ];
+        let day = days[now.getDay()];
+
+        let months = [
+          "January",
+          "February",
+          "March",
+          "April",
+          "May",
+          "June",
+          "July",
+          "August",
+          "September",
+          "October",
+          "November",
+          "December",
+        ];
+        let month = months[now.getMonth()];
+        let curTime = document.querySelector("#time");
+        curTime.innerHTML = `Today is ${day} , ${month} ${date} , ${year} `;
+
+        return formattedDate();
+      }
+      console.log(formatDate(new Date()));
+    </script>
+  </body>
+</html>
