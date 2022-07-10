@@ -223,4 +223,4 @@ locationCurrent.addEventListener("click", getCurrentPosition);
 
 let celsiusTemperature = null;
 
-search("London");
+searchCity("London");
