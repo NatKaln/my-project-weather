@@ -104,12 +104,15 @@ function getForecast(coordinates) {
 function search(event) {
   event.preventDefault();
   let inputCity = document.querySelector("#inputCity");
-  let units = "metric";
-  let apiKey = "ae257b6f200fc59e9f754b38798d7627";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${inputCity.value}&appid=${apiKey}&units=${units}`;
-  axios.get(apiUrl).then(showWeather);
+  searchCity(inputCity.value);
 }
 
+function searchCity(city) {
+  let units = "metric";
+  let apiKey = "ae257b6f200fc59e9f754b38798d7627";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
+  axios.get(apiUrl).then(showWeather);
+}
 let searchEvent = document.querySelector("#changeCity");
 searchEvent.addEventListener("submit", search);
 
