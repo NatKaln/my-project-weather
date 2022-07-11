@@ -23,11 +23,8 @@ body {
   padding: 25px;
   max-width: 55%;
   margin: 0 auto;
-  background: linear-gradient(
-    rgba(254, 222, 254, 0.675),
-    rgba(255, 255, 255, 0.791) 90%
-  );
-  border: solid #ffb5b5;
+  background: linear-gradient(to top, #9890e3 0%, #b1f4cf 100%);
+  border: solid;
   border-radius: 25px;
 }
 .weather-forecast {

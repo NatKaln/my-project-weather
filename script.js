@@ -195,34 +195,7 @@ function locationButton(position) {
   let lon = position.coords.longitude;
   let apiKey = "ae257b6f200fc59e9f754b38798d7627";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
-
-  function showTemperature(position) {
-    let currentTemperature = Math.round(position.data.main.temp);
-    let temperatureCur = document.querySelector("#temperature-cur");
-    temperatureCur.innerHTML = currentTemperature;
-    let city = document.querySelector("#curCity");
-    let cityName = position.data.name;
-    city.innerHTML = cityName;
-    let humidity = position.data.main.humidity;
-    let humidityElement = document.querySelector("#humidity-cur");
-    humidityElement.innerHTML = `${humidity}%`;
-    let wind = position.data.wind.speed;
-    let windElement = document.querySelector("#wind-cur");
-    windElement.innerHTML = `${wind}km/h`;
-    let clouds = position.data.weather[0].description;
-    let cloudsElement = document.querySelector("#clouds-cur");
-    cloudsElement.innerHTML = clouds;
-
-    let date = formatDate(position.data.dt * 1000);
-    let dateElement = document.querySelector("#dayCur");
-    dateElement.innerHTML = date;
-
-    let day = formatDateMonth(position.data.dt * 1000);
-    let dayOfMonth = document.querySelector("#currentDate");
-    dayOfMonth.innerHTML = day;
-  }
-  axios.get(apiUrl).then(showTemperature);
-  getForecast(position);
+  axios.get(apiUrl).then(showWeather);
 }
 
 function getCurrentPosition(event) {
